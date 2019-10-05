@@ -1,0 +1,3 @@
+/*
+		Command that prints the phoneBook when the command is executed by the menu
+*/
