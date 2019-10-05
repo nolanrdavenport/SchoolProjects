@@ -14,11 +14,11 @@ phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& numbe
 
 phoneBookEntry::phoneBookEntry(const phoneBookEntry& from) {} //Copy Construtor
 
-std::string phoneBookEntry::name() const {}
+std::string phoneBookEntry::name() const { return ""; }
 
-std::string phoneBookEntry::phoneNumber() const {}
+std::string phoneBookEntry::phoneNumber() const { return ""; }
 
-std::string phoneBookEntry::email() const {}
+std::string phoneBookEntry::email() const { return ""; }
 
 void phoneBookEntry::phoneNumber(const std::string& newNumber) {}
 

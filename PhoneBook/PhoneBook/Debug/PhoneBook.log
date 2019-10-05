@@ -1,4 +1,5 @@
-﻿  PhoneBook.cpp
+﻿  phoneBook.cpp
+  phoneBookEntry.cpp
   testmenu.cpp
   Generating Code...
-  PhoneBook.vcxproj -> C:\Users\guzzo\source\repos\PhoneBook\Debug\PhoneBook.exe
+  PhoneBook.vcxproj -> C:\Users\guzzo\Documents\GitHub\SchoolProjects\PhoneBook\Debug\PhoneBook.exe

@@ -41,6 +41,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 #include "phoneBookEntry.h"
 
 class phoneBook {
