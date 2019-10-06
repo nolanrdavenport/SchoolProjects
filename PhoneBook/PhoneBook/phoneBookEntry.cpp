@@ -6,20 +6,45 @@
 
 #include "phoneBookEntry.h"
 
-phoneBookEntry::phoneBookEntry() {}
+phoneBookEntry::phoneBookEntry() {
+	this->currName = "N/A";
+	this->currNumber = "N/A";
+	this->currEmail = "N/A";
+}
 
-phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number) {}
+phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number) {
+	this->currName = name;
+	this->currNumber = number;
+}
 
-phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number, const std::string& email) {}
+phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number, const std::string& email) {
+	this->currName = name;
+	this->currNumber = number;
+	this->currEmail = email;
+}
 
-phoneBookEntry::phoneBookEntry(const phoneBookEntry& from) {} //Copy Construtor
+phoneBookEntry::phoneBookEntry(const phoneBookEntry& from) {
+	this->currName = from.name();
+	this->currNumber = from.phoneNumber();
+	this->currEmail = from.email();
+} //Copy Construtor
 
-std::string phoneBookEntry::name() const { return ""; }
+std::string phoneBookEntry::name() const { 
+	return currName;
+}
 
-std::string phoneBookEntry::phoneNumber() const { return ""; }
+std::string phoneBookEntry::phoneNumber() const { 
+	return currNumber;
+}
 
-std::string phoneBookEntry::email() const { return ""; }
+std::string phoneBookEntry::email() const { 
+	return currEmail;
+}
 
-void phoneBookEntry::phoneNumber(const std::string& newNumber) {}
+void phoneBookEntry::phoneNumber(const std::string& newNumber) { 
+	this->currNumber = newNumber;
+}
 
-void phoneBookEntry::email(const std::string& newEmail) {}
+void phoneBookEntry::email(const std::string& newEmail) { 
+	this->currEmail = newEmail;
+}

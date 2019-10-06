@@ -14,7 +14,7 @@
 class phoneBookEntry{
 public: 
 	phoneBookEntry();
-	phoneBookEntry(const std::string& name, const std::string& number);\
+	phoneBookEntry(const std::string& name, const std::string& number);
 	phoneBookEntry(const std::string& name, const std::string& number, const std::string& email);
 	phoneBookEntry(const phoneBookEntry& from); //Copy Construtor
 	std::string name() const;
@@ -22,4 +22,8 @@ public:
 	std::string email() const;
 	void phoneNumber(const std::string& newNumber);
 	void email(const std::string& newEmail);
+private: 
+	std::string currName;
+	std::string currNumber;
+	std::string currEmail;
 };
