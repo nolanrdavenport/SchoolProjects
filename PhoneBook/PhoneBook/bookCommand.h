@@ -20,6 +20,7 @@
 		You should also have two protected member functions.
 		One will display a passed in std::string to the std::ostream that was passed to you on the constructor. 
 		This function does not return a value, it takes one parameter of type std::string and display it to the std::ostream protected reference.
+
 		The second member function will be passed in a std::string that will be written to the std::ostream passed to your constructor. This is a prompt to the user. 
 		It will then read in a std::string from the std::istream passed to your constructor and return the read in std::string to the caller. 
 		Note that the input you are reading in may contain embedded spaces. For this reason you should (must) use getline to read in the input values.
@@ -41,4 +42,6 @@ public:
 protected:
 	std::istream& in;
 	std::ostream& out;
+	void display(std::string str);
+	std::string prompt(std::string str);
 };

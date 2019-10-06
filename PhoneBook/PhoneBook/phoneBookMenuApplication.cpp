@@ -14,35 +14,52 @@
 	COMPLETE-	First create the phoneBookEntry class and make sure that is working. You may have to create some test code to make sure it is working. 
 				Try out the various constructors (including the copy constructor), and the accessors and mutators
 
-	Next get the phoneBook working. Start with the constructors and then add the debug support. Next start doing the various insert operations, the erase operation, the find operation, and the print operations. 
-	Don't try and do this all at once.
+	COMPLETE -	Next get the phoneBook working. Start with the constructors and then add the debug support. Next start doing the various insert operations, the erase operation, the find operation, and the print operations. 
+				Don't try and do this all at once.
 
-	For the menu you can start by getting the menu to work with just the default quit command.
+	COMPLETE -	For the menu you can start by getting the menu to work with just the default quit command.
 
-	Next you can implement the add/update command and get that working.
+	COMPLETE -	Next you can implement the add/update command and get that working.
 
-	After that is working you can add the print support.
+	COMPLETE -  After that is working you can add the print support.
 
-	Finish by adding the erase.
+	COMPLETE -	Finish by adding the erase.
 
 
 */
 #include <iostream>
 #include "phoneBookEntry.h"
 #include "phoneBook.h"
+#include "menuList.h"
+#include "addUpdateCommand.h"
+#include "eraseCommand.h"
+#include "printCommand.h"
+
 using namespace std;
 
 int main() {
-	//TODO: Start working on the menu
-	cout << "Hello, world!" << endl;
 	phoneBook book;
 
-	phoneBookEntry e1("bill","1-800","bill@mail.com");
-	phoneBookEntry e2("bob","281","bob@mail.com");
-	phoneBookEntry e3("bob","999","pSlayer@gmail.com");
-	
-	book.insert(e1);
-	book.insert(e2);
+	//Creates commands
+	addUpdateCommand addUpdate(book,cin,cout);
+	eraseCommand erase(book,cin,cout);
+	printCommand print(book,cin,cout);
 
+	//Builds the menuList and menuItems
+	menuList menu("Phone book menu:");
+	menuItem addUpdateItem('a',"add/update",addUpdate);
+	menuItem eraseItem('e',"erase",erase);
+	menuItem printItem('p',"print", print);
+
+	//Adds items to menu
+	menu.add(addUpdateItem);
+	menu.add(eraseItem);
+	menu.add(printItem);
+
+	
+	cout << "Starting the Phone Book" << endl << endl;
+
+	menu.start();
+	
 	return 0;
 }

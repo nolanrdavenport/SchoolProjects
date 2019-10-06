@@ -11,7 +11,7 @@
 #pragma once
 #include "bookCommand.h"
 #include "phoneBook.h"
-class printCommand : bookCommand {
+class printCommand : public bookCommand {
 public:
 	printCommand(phoneBook& bookIn, std::istream& in, std::ostream& out);
 	void execute();

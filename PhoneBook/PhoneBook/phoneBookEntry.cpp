@@ -8,9 +8,9 @@
 #include <iostream>
 
 phoneBookEntry::phoneBookEntry() {
-	this->currName = "N/A";
-	this->currNumber = "N/A";
-	this->currEmail = "N/A";
+	this->currName = "";
+	this->currNumber = "";
+	this->currEmail = "";
 }
 
 phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number) {
