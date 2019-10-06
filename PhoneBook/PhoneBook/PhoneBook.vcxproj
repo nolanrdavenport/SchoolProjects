@@ -157,7 +157,7 @@
     <ClCompile Include="menuList.cpp" />
     <ClCompile Include="phoneBook.cpp" />
     <ClCompile Include="phoneBookEntry.cpp" />
-    <ClCompile Include="phoneBookMenuApplication.cpp" />
+    <ClCompile Include="assignment2.cpp" />
     <ClCompile Include="printCommand.cpp" />
     <ClCompile Include="testmenu.cpp" />
   </ItemGroup>

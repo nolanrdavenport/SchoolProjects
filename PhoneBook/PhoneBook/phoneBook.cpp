@@ -1,5 +1,5 @@
 /*
-	This is the phoneBook and contains phoneBookEntry values. You can add, update, and remove entries from the phoneBook and you can print the contents of the phoneBook
+	This is the phoneBook and contains phoneBookEntry values. You can add, update, and remove entries from the phoneBook and you can print the contents of the phoneBook.
 */
 #include "phoneBook.h"
 #include <iostream>
