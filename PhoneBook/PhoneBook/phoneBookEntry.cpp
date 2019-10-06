@@ -5,6 +5,7 @@
 */
 
 #include "phoneBookEntry.h"
+#include <iostream>
 
 phoneBookEntry::phoneBookEntry() {
 	this->currName = "N/A";

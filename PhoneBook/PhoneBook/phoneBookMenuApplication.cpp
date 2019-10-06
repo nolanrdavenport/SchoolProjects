@@ -11,8 +11,8 @@
 	
 	no global variables
 
-	First create the phoneBookEntry class and make sure that is working. You may have to create some test code to make sure it is working. 
-	Try out the various constructors (including the copy constructor), and the accessors and mutators
+	COMPLETE-	First create the phoneBookEntry class and make sure that is working. You may have to create some test code to make sure it is working. 
+				Try out the various constructors (including the copy constructor), and the accessors and mutators
 
 	Next get the phoneBook working. Start with the constructors and then add the debug support. Next start doing the various insert operations, the erase operation, the find operation, and the print operations. 
 	Don't try and do this all at once.
@@ -29,12 +29,20 @@
 */
 #include <iostream>
 #include "phoneBookEntry.h"
+#include "phoneBook.h"
 using namespace std;
 
 int main() {
 	//TODO: Start working on the menu
 	cout << "Hello, world!" << endl;
+	phoneBook book;
 
-	phoneBookEntry entry("Nolan Davenport", "2812032172");
-	cout << entry.name();
+	phoneBookEntry e1("bill","1-800","bill@mail.com");
+	phoneBookEntry e2("bob","281","bob@mail.com");
+	phoneBookEntry e3("bob","999","pSlayer@gmail.com");
+	
+	book.insert(e1);
+	book.insert(e2);
+
+	return 0;
 }

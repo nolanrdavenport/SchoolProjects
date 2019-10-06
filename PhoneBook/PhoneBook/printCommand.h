@@ -9,14 +9,13 @@
 		This is output from the phoneBook print member function that is called by the printCommand. assignment2.cpp
 */
 #pragma once
+#include "bookCommand.h"
 #include "phoneBook.h"
-#include "command.h"
-#include <iostream>
-
-class printCommand : public command {
+class printCommand : bookCommand {
 public:
 	printCommand(phoneBook& bookIn, std::istream& in, std::ostream& out);
 	void execute();
 private:
-	phoneBook &book;
+	phoneBook& book;
+
 };

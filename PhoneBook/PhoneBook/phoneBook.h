@@ -2,14 +2,14 @@
 	This is the phoneBook and contains phoneBookEntry values. You can add, update, and remove entries from the phoneBook and you can print the contents of the phoneBook
 
 	Notes:
-	The insert operations will add the phoneBookEntry to the collection if it does not already exist. The new entry will be added to the bottom of the vector. 
-	If the entry already exists (the name is already in the phone book), the existing entry must be updated.
+	COMPLETE-	The insert operations will add the phoneBookEntry to the collection if it does not already exist. The new entry will be added to the bottom of the vector. 
+				If the entry already exists (the name is already in the phone book), the existing entry must be updated.
 
-	The first version of the insert takes an existing phoneBookEntry and add it to the vector. 
-	For the 2nd and 3rd versions of the insert your insert member functions will have to create the phoneBookEntry that is to be added to the collection. 
-	These can be temporary phoneBookEntry objects (the copy constructor will be called when the actual entry is added to the vector).
+	COMPLETE-	The first version of the insert takes an existing phoneBookEntry and add it to the vector. 
+				For the 2nd and 3rd versions of the insert your insert member functions will have to create the phoneBookEntry that is to be added to the collection. 
+				These can be temporary phoneBookEntry objects (the copy constructor will be called when the actual entry is added to the vector).
 
-	If the entry (name) already exists in the vector you should update the phoneNumber and email for the existing entry.
+	COMPLETE -	If the entry (name) already exists in the vector you should update the phoneNumber and email for the existing entry.
 
 	The erase operation will remove the phone book entry with the associated name from the collection.
 	Your erase function will need to find the entry to be erased. Lets say it is at index i. If there is an entry at i+1 it will need to be moved to entry i. 
@@ -61,4 +61,8 @@ public:
 	typedef phoneBookEntryList::const_iterator const_iterator;
 	iterator begin();
 	iterator end();
+
+	int containsName(std::string nameIn);
+private:
+	std::vector<phoneBookEntry> entries;
 };
