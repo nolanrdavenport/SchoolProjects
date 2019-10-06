@@ -24,6 +24,6 @@ public:
 	eraseCommand(phoneBook& bookIn, std::istream& in, std::ostream& out);
 	void execute(); 
 private:
-	phoneBook& book;
+	phoneBook &book;
 
 };
