@@ -31,6 +31,10 @@ public:
 	typedef std::vector<phoneBookEntry> phoneBookEntryList;
 	typedef phoneBookEntryList::iterator iterator;
 	typedef phoneBookEntryList::const_iterator const_iterator;
+	iterator itr;
+	iterator b;
+	iterator e;
+	void recalculateIteratorEnds();
 	iterator begin();
 	iterator end();
 	int containsName(std::string nameIn);
