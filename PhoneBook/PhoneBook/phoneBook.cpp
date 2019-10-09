@@ -9,13 +9,16 @@ phoneBook::phoneBook() {}
 using namespace std;
 
 /*
-	Adds a new entry to the entries vector by sending in a phoneBookEntry object reference as the parameter. 
+	Allows for the use of iterators in constant functions.
 */
 void phoneBook::recalculateIteratorEnds() {
 	b = begin();
 	e = end();
 }
 
+/*
+	Adds a new entry to the entries vector by sending in a phoneBookEntry object reference as the parameter.
+*/
 void phoneBook::insert(const phoneBookEntry& entry) {
 	int sameName = containsName(entry.name());
 	if (sameName >= 0) {
@@ -81,22 +84,11 @@ bool phoneBook::erase(std::string name) {
 	Returns true if there does exist an entry with a name that matches the one sent in as a parameter, and false if not. 
 */
 bool phoneBook::find(std::string name) {
-
-	//for (itr = begin(); itr != end(); itr++) {
-	//	
-	//}
-
-	for (int i = 0; i < entries.size(); i++) {
-		if (entries.at(i).name() == name) {
-			recalculateIteratorEnds();
+	for (itr = begin(); itr != end(); itr++) {
+		if ((*itr).name() == name) {
 			return true;
 		}
 	}
-
-	for (iterator it = phoneBook::begin(); it != phoneBook::end(); it++) {
-
-	}
-	recalculateIteratorEnds();
 	return false;
 }
 
