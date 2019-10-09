@@ -11,6 +11,11 @@ using namespace std;
 /*
 	Adds a new entry to the entries vector by sending in a phoneBookEntry object reference as the parameter. 
 */
+void phoneBook::recalculateIteratorEnds() {
+	b = begin();
+	e = end();
+}
+
 void phoneBook::insert(const phoneBookEntry& entry) {
 	int sameName = containsName(entry.name());
 	if (sameName >= 0) {
@@ -19,6 +24,8 @@ void phoneBook::insert(const phoneBookEntry& entry) {
 	else {
 		entries.push_back(entry);
 	}
+
+	recalculateIteratorEnds();
 }
 
 /*
@@ -33,6 +40,8 @@ void phoneBook::insert(const std::string& name, const std::string& number, const
 	else {
 		entries.push_back(tempEntry);
 	}
+
+	recalculateIteratorEnds();
 }
 
 /*
@@ -47,6 +56,8 @@ void phoneBook::insert(const std::string& name, const std::string& number) {
 	else {
 		entries.push_back(tempEntry);
 	}
+
+	recalculateIteratorEnds();
 }
 
 /*
@@ -57,10 +68,11 @@ bool phoneBook::erase(std::string name) {
 	for (int i = 0; i < entries.size(); i++) {
 		if (entries.at(i).name() == name) {
 			entries.erase(entries.begin() + i);
+			recalculateIteratorEnds();
 			return true;
 		}
 	}
-
+	recalculateIteratorEnds();
 	return false;
 }
 
@@ -69,8 +81,14 @@ bool phoneBook::erase(std::string name) {
 	Returns true if there does exist an entry with a name that matches the one sent in as a parameter, and false if not. 
 */
 bool phoneBook::find(std::string name) {
+
+	//for (itr = begin(); itr != end(); itr++) {
+	//	
+	//}
+
 	for (int i = 0; i < entries.size(); i++) {
 		if (entries.at(i).name() == name) {
+			recalculateIteratorEnds();
 			return true;
 		}
 	}
@@ -78,6 +96,7 @@ bool phoneBook::find(std::string name) {
 	for (iterator it = phoneBook::begin(); it != phoneBook::end(); it++) {
 
 	}
+	recalculateIteratorEnds();
 	return false;
 }
 
@@ -86,16 +105,17 @@ bool phoneBook::find(std::string name) {
 */
 void phoneBook::print() const {
 	cout << "Name:                          Phone Number:   E-Mail:" << endl;
-	for (phoneBookEntry entry : entries) {
+	iterator itr;
+	for (itr = b; itr != e; itr++) {
 		string name = "                               ";
-		for (int i = 0; i < entry.name().size(); i++) {
-			name[i] = entry.name()[i];
+		for (int i = 0; i < (*itr).name().size(); i++) {
+			name[i] = (*itr).name()[i];
 		}
 		string number = "                ";
-		for (int i = 0; i < entry.phoneNumber().size(); i++) {
-			number[i] = entry.phoneNumber()[i];
+		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
+			number[i] = (*itr).phoneNumber()[i];
 		}
-		string email = entry.email();
+		string email = (*itr).email();
 
 		cout << name << number << email << endl;
 	}
