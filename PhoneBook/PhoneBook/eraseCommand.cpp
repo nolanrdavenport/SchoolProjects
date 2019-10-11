@@ -11,7 +11,7 @@ using namespace std;
 eraseCommand::eraseCommand(phoneBook& bookIn, std::istream& in, std::ostream& out) : bookCommand(in, out), book(bookIn) {}
 
 /*
-	Executes the erase command. The user is prompted to enter a name to erase, and that name is erased if there exists an entry with that name. 
+	Executes the erase command. The user is prompted to enter a name to erase, and that name is erased if there exists an entry with that name.
 */
 void eraseCommand::execute() {
 	string nameToErase = prompt("Enter name to erase");

@@ -9,7 +9,7 @@
 printCommand::printCommand(phoneBook& bookIn, std::istream& in, std::ostream& out) : bookCommand(in, out), book(bookIn) {}
 
 /*
-	Executes the print command. Calls the print() method in the phoneBook class. 
+	Executes the print command. Calls the print() method in the phoneBook class.
 */
 void printCommand::execute() {
 	book.print();

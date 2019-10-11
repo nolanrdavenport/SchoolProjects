@@ -31,20 +31,20 @@
 
 #include "menuList.h"
 
-// create menuList with default menu heading
+ // create menuList with default menu heading
 menuList::menuList()
 	: itemList(0), menuText(TITLE_TEXT)
 {
 }
 
 // create menuList with the specified menu heading
-menuList::menuList(const std::string &menuText)
+menuList::menuList(const std::string& menuText)
 	: itemList(0), menuText(menuText)
 {
 }
 
 // add an item to the list
-void menuList::add(menuItem &item)
+void menuList::add(menuItem& item)
 {
 	itemList.push_back(item);
 }
@@ -93,15 +93,14 @@ void menuList::start() const
 				std::cout << std::endl;
 			}
 		}
-	}
-	while (selectChar != QUIT);
+	} while (selectChar != QUIT);
 }
 
 // display all of the menu item values
 void menuList::displayMenu() const
 {
 	std::cout << menuText << std::endl;
-	for (auto &item : itemList)
+	for (auto& item : itemList)
 	{
 		std::cout << item.select();
 		std::cout << " ";
@@ -145,7 +144,7 @@ menuItem::menuItem()
 }
 
 // actual, useful, command
-menuItem::menuItem(char selectChar, const std::string &descriptionText, command &cmd)
+menuItem::menuItem(char selectChar, const std::string& descriptionText, command& cmd)
 	: theSelectChar(selectChar), theDescription(descriptionText), theCommand(cmd)
 {
 }

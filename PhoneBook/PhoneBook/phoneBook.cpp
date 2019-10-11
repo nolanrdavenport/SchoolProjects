@@ -33,7 +33,7 @@ void phoneBook::insert(const phoneBookEntry& entry) {
 }
 
 /*
-	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name, number and email string references sent in as paramters. 
+	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name, number and email string references sent in as paramters.
 */
 void phoneBook::insert(const std::string& name, const std::string& number, const std::string& email) {
 	phoneBookEntry tempEntry(name, number, email);
@@ -49,7 +49,7 @@ void phoneBook::insert(const std::string& name, const std::string& number, const
 }
 
 /*
-	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name and number string references sent in as paramters. 
+	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name and number string references sent in as paramters.
 */
 void phoneBook::insert(const std::string& name, const std::string& number) {
 	phoneBookEntry tempEntry(name, number);
@@ -65,10 +65,10 @@ void phoneBook::insert(const std::string& name, const std::string& number) {
 }
 
 /*
-	Erases an entry based on its name from the entries vector. 
-	Returns true if an entry was erased, and false if an entry was not erased. 
+	Erases an entry based on its name from the entries vector.
+	Returns true if an entry was erased, and false if an entry was not erased.
 */
-bool phoneBook::erase(std::string name) { 
+bool phoneBook::erase(std::string name) {
 	for (itr = begin(); itr != end(); itr++) {
 		if ((*itr).name() == name) {
 			entries.erase(itr);
@@ -81,8 +81,8 @@ bool phoneBook::erase(std::string name) {
 }
 
 /*
-	Finds whether or not there exists an entry with a name that matches the one sent in as a parameter. 
-	Returns true if there does exist an entry with a name that matches the one sent in as a parameter, and false if not. 
+	Finds whether or not there exists an entry with a name that matches the one sent in as a parameter.
+	Returns true if there does exist an entry with a name that matches the one sent in as a parameter, and false if not.
 */
 bool phoneBook::find(std::string name) {
 	for (itr = begin(); itr != end(); itr++) {
@@ -94,18 +94,18 @@ bool phoneBook::find(std::string name) {
 }
 
 /*
-	Prints the contents of the entries vector in a structured manner. Uses cout as the output stream. 
+	Prints the contents of the entries vector in a structured manner. Uses cout as the output stream.
 */
 void phoneBook::print() const {
 	cout << "Name:                          Phone Number:   E-Mail:" << endl;
 	iterator itr;
 	for (itr = b; itr != e; itr++) {
 		string name = "                               ";
-		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
+		for (int i = 0; i < (*itr).name().size(); i++) {
 			name[i] = (*itr).name()[i];
 		}
 		string number = "                ";
-		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
+		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
 			number[i] = (*itr).phoneNumber()[i];
 		}
 		string email = (*itr).email();
@@ -115,7 +115,7 @@ void phoneBook::print() const {
 }
 
 /*
-	Prints the contents of the entries vector in a structured manner. Uses ostream parameter as the output stream. 
+	Prints the contents of the entries vector in a structured manner. Uses ostream parameter as the output stream.
 */
 void phoneBook::print(std::ostream& out) const {
 	out << "Name:                          Phone Number:   E-Mail:" << endl;
@@ -136,7 +136,7 @@ void phoneBook::print(std::ostream& out) const {
 }
 
 /*
-	Prints the entries vector for debug purposes. 
+	Prints the entries vector for debug purposes.
 */
 void phoneBook::debug(std::ostream& out) const {
 	iterator itr;
@@ -146,9 +146,9 @@ void phoneBook::debug(std::ostream& out) const {
 }
 
 /*
-	Returns the size of the entries vector. 
+	Returns the size of the entries vector.
 */
-std::size_t phoneBook::size() const { 
+std::size_t phoneBook::size() const {
 	return entries.size();
 }
 
@@ -167,12 +167,12 @@ phoneBook::iterator phoneBook::end() {
 }
 
 /*
-	Returns the index of the entry that has the same name as the parameter. Returns -1 if there is no name that is equal to the parameter. 
+	Returns the index of the entry that has the same name as the parameter. Returns -1 if there is no name that is equal to the parameter.
 */
 int phoneBook::containsName(string nameIn) {
-	for (itr = begin(); itr != end(); itr++) {
-		if ((*itr).name() == nameIn) {
-			return begin() - itr;
+	for (int i = 0; i < entries.size(); i++) {
+		if (entries.at(i).name() == nameIn) {
+			return i;
 		}
 	}
 
