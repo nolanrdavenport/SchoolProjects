@@ -4,6 +4,7 @@
 #include "phoneBook.h"
 #include <iostream>
 #include <vector>
+
 phoneBook::phoneBook() {}
 
 using namespace std;
@@ -68,9 +69,9 @@ void phoneBook::insert(const std::string& name, const std::string& number) {
 	Returns true if an entry was erased, and false if an entry was not erased. 
 */
 bool phoneBook::erase(std::string name) { 
-	for (int i = 0; i < entries.size(); i++) {
-		if (entries.at(i).name() == name) {
-			entries.erase(entries.begin() + i);
+	for (itr = begin(); itr != end(); itr++) {
+		if ((*itr).name() == name) {
+			entries.erase(itr);
 			recalculateIteratorEnds();
 			return true;
 		}
@@ -118,16 +119,17 @@ void phoneBook::print() const {
 */
 void phoneBook::print(std::ostream& out) const {
 	out << "Name:                          Phone Number:   E-Mail:" << endl;
-	for (phoneBookEntry entry : entries) {
+	iterator itr;
+	for (itr = b; itr != e; itr++) {
 		string name = "                               ";
-		for (int i = 0; i < entry.name().size(); i++) {
-			name[i] = entry.name()[i];
+		for (int i = 0; i < (*itr).name().size(); i++) {
+			name[i] = (*itr).name()[i];
 		}
 		string number = "                ";
-		for (int i = 0; i < entry.phoneNumber().size(); i++) {
-			number[i] = entry.phoneNumber()[i];
+		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
+			number[i] = (*itr).phoneNumber()[i];
 		}
-		string email = entry.email();
+		string email = (*itr).email();
 
 		out << name << number << email << endl;
 	}
@@ -137,8 +139,9 @@ void phoneBook::print(std::ostream& out) const {
 	Prints the entries vector for debug purposes. 
 */
 void phoneBook::debug(std::ostream& out) const {
-	for (phoneBookEntry entry : entries) {
-		out << entry.name() << " | " << entry.phoneNumber() << " | " << entry.email() << endl;
+	iterator itr;
+	for (itr = b; itr != e; itr++) {
+		out << (*itr).name() << " | " << (*itr).phoneNumber() << " | " << (*itr).email() << endl;
 	}
 }
 
