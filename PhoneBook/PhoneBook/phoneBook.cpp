@@ -101,11 +101,11 @@ void phoneBook::print() const {
 	iterator itr;
 	for (itr = b; itr != e; itr++) {
 		string name = "                               ";
-		for (int i = 0; i < (*itr).name().size(); i++) {
+		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
 			name[i] = (*itr).name()[i];
 		}
 		string number = "                ";
-		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
+		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
 			number[i] = (*itr).phoneNumber()[i];
 		}
 		string email = (*itr).email();
@@ -170,9 +170,9 @@ phoneBook::iterator phoneBook::end() {
 	Returns the index of the entry that has the same name as the parameter. Returns -1 if there is no name that is equal to the parameter. 
 */
 int phoneBook::containsName(string nameIn) {
-	for (int i = 0; i < entries.size(); i++) {
-		if (entries.at(i).name() == nameIn) {
-			return i;
+	for (itr = begin(); itr != end(); itr++) {
+		if ((*itr).name() == nameIn) {
+			return begin() - itr;
 		}
 	}
 
