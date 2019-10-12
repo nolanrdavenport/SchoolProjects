@@ -6,7 +6,7 @@
 
 #include "phoneBookEntry.h"
 #include <iostream>
-
+#include <string>
 /*
 	Constructs a phoneBookentry with no parameters. Everything is set to an empty string.
 */
@@ -19,7 +19,7 @@ phoneBookEntry::phoneBookEntry() {
 /*
 	Constructs a phoneBookEntry using a name and a number that were sent in as parameters. The email is set to an empty string.
 */
-phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number) {
+phoneBookEntry::phoneBookEntry(const std::string &name, const std::string &number) {
 	this->currName = name;
 	this->currNumber = number;
 	this->currEmail = "";
@@ -28,7 +28,7 @@ phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& numbe
 /*
 	Constructs a phoneBookEntry using a name, a number and an email that were sent in as parameters.
 */
-phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& number, const std::string& email) {
+phoneBookEntry::phoneBookEntry(const std::string &name, const std::string &number, const std::string &email) {
 	this->currName = name;
 	this->currNumber = number;
 	this->currEmail = email;
@@ -37,7 +37,7 @@ phoneBookEntry::phoneBookEntry(const std::string& name, const std::string& numbe
 /*
 	Copy constructor for phone book entries.
 */
-phoneBookEntry::phoneBookEntry(const phoneBookEntry& from) {
+phoneBookEntry::phoneBookEntry(const phoneBookEntry &from) {
 	this->currName = from.name();
 	this->currNumber = from.phoneNumber();
 	this->currEmail = from.email();
@@ -67,13 +67,13 @@ std::string phoneBookEntry::email() const {
 /*
 	Sets the current phone number to the value of the parameter.
 */
-void phoneBookEntry::phoneNumber(const std::string& newNumber) {
+void phoneBookEntry::phoneNumber(const std::string &newNumber) {
 	this->currNumber = newNumber;
 }
 
 /*
 	Sets the current email to the value of the parameter.
 */
-void phoneBookEntry::email(const std::string& newEmail) {
+void phoneBookEntry::email(const std::string &newEmail) {
 	this->currEmail = newEmail;
 }

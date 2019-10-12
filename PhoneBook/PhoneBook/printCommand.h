@@ -7,7 +7,7 @@
 */
 class printCommand : public bookCommand {
 public:
-	printCommand(phoneBook& bookIn, std::istream& in, std::ostream& out);
+	printCommand(phoneBook &bookIn, std::istream &in, std::ostream &out);
 	void execute();
 private:
 	phoneBook& book;

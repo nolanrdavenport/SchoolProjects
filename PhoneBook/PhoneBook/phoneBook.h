@@ -9,14 +9,14 @@
 class phoneBook {
 public:
 	phoneBook();
-	void insert(const phoneBookEntry& entry);
-	void insert(const std::string& name, const std::string& number, const std::string& email);
-	void insert(const std::string& name, const std::string& number);
+	void insert(const phoneBookEntry &entry);
+	void insert(const std::string &name, const std::string &number, const std::string &email);
+	void insert(const std::string &name, const std::string &number);
 	bool erase(std::string name);
 	bool find(std::string name);
 	void print() const;
-	void print(std::ostream& out) const;
-	void debug(std::ostream& out) const;
+	void print(std::ostream &out) const;
+	void debug(std::ostream &out) const;
 	std::size_t size() const;
 	typedef std::vector<phoneBookEntry> phoneBookEntryList;
 	typedef phoneBookEntryList::iterator iterator;

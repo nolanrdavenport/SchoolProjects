@@ -9,16 +9,14 @@
 #include "eraseCommand.h"
 #include "printCommand.h"
 
-using namespace std;
-
 int main() {
 	//Creates phone book.
 	phoneBook book;
 
 	//Creates commands
-	addUpdateCommand addUpdate(book, cin, cout);
-	eraseCommand erase(book, cin, cout);
-	printCommand print(book, cin, cout);
+	addUpdateCommand addUpdate(book, std::cin, std::cout);
+	eraseCommand erase(book, std::cin, std::cout);
+	printCommand print(book, std::cin, std::cout);
 
 	//Builds the menuList and menuItems.
 	menuList menu("Phone book menu:");
@@ -32,7 +30,7 @@ int main() {
 	menu.add(printItem);
 
 	//Starts the menu.
-	cout << "Starting the Phone Book" << endl << endl;
+	std::cout << "Starting the Phone Book" << std::endl << std::endl;
 	menu.start();
 
 	return 0;

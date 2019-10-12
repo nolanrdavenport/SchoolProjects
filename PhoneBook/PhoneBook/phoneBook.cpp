@@ -7,8 +7,6 @@
 
 phoneBook::phoneBook() {}
 
-using namespace std;
-
 /*
 	Allows for the use of iterators in constant functions.
 */
@@ -20,7 +18,7 @@ void phoneBook::recalculateIteratorEnds() {
 /*
 	Adds a new entry to the entries vector by sending in a phoneBookEntry object reference as the parameter.
 */
-void phoneBook::insert(const phoneBookEntry& entry) {
+void phoneBook::insert(const phoneBookEntry &entry) {
 	int sameName = containsName(entry.name());
 	if (sameName >= 0) {
 		entries.at(sameName) = entry;
@@ -35,7 +33,7 @@ void phoneBook::insert(const phoneBookEntry& entry) {
 /*
 	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name, number and email string references sent in as paramters.
 */
-void phoneBook::insert(const std::string& name, const std::string& number, const std::string& email) {
+void phoneBook::insert(const std::string &name, const std::string &number, const std::string &email) {
 	phoneBookEntry tempEntry(name, number, email);
 	int sameName = containsName(tempEntry.name());
 	if (sameName >= 0) {
@@ -97,20 +95,20 @@ bool phoneBook::find(std::string name) {
 	Prints the contents of the entries vector in a structured manner. Uses cout as the output stream.
 */
 void phoneBook::print() const {
-	cout << "Name:                          Phone Number:   E-Mail:" << endl;
+	std::cout << "Name:                          Phone Number:   E-Mail:" << std::endl;
 	iterator itr;
 	for (itr = b; itr != e; itr++) {
-		string name = "                               ";
-		for (int i = 0; i < (*itr).name().size(); i++) {
+		std::string name = "                               ";
+		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
 			name[i] = (*itr).name()[i];
 		}
-		string number = "                ";
-		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
+		std::string number = "                ";
+		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
 			number[i] = (*itr).phoneNumber()[i];
 		}
-		string email = (*itr).email();
+		std::string email = (*itr).email();
 
-		cout << name << number << email << endl;
+		std::cout << name << number << email << std::endl;
 	}
 }
 
@@ -118,20 +116,20 @@ void phoneBook::print() const {
 	Prints the contents of the entries vector in a structured manner. Uses ostream parameter as the output stream.
 */
 void phoneBook::print(std::ostream& out) const {
-	out << "Name:                          Phone Number:   E-Mail:" << endl;
+	out << "Name:                          Phone Number:   E-Mail:" << std::endl;
 	iterator itr;
 	for (itr = b; itr != e; itr++) {
-		string name = "                               ";
-		for (int i = 0; i < (*itr).name().size(); i++) {
+		std::string name = "                               ";
+		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
 			name[i] = (*itr).name()[i];
 		}
-		string number = "                ";
-		for (int i = 0; i < (*itr).phoneNumber().size(); i++) {
+		std::string number = "                ";
+		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
 			number[i] = (*itr).phoneNumber()[i];
 		}
-		string email = (*itr).email();
+		std::string email = (*itr).email();
 
-		out << name << number << email << endl;
+		out << name << number << email << std::endl;
 	}
 }
 
@@ -141,7 +139,7 @@ void phoneBook::print(std::ostream& out) const {
 void phoneBook::debug(std::ostream& out) const {
 	iterator itr;
 	for (itr = b; itr != e; itr++) {
-		out << (*itr).name() << " | " << (*itr).phoneNumber() << " | " << (*itr).email() << endl;
+		out << (*itr).name() << " | " << (*itr).phoneNumber() << " | " << (*itr).email() << std::endl;
 	}
 }
 
@@ -169,10 +167,10 @@ phoneBook::iterator phoneBook::end() {
 /*
 	Returns the index of the entry that has the same name as the parameter. Returns -1 if there is no name that is equal to the parameter.
 */
-int phoneBook::containsName(string nameIn) {
-	for (int i = 0; i < entries.size(); i++) {
-		if (entries.at(i).name() == nameIn) {
-			return i;
+int phoneBook::containsName(std::string nameIn) {
+	for (itr = begin(); itr != end(); itr++) {
+		if ((*itr).name() == nameIn) {
+			return itr - begin();
 		}
 	}
 

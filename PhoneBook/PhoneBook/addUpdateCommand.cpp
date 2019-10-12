@@ -3,8 +3,6 @@
 */
 #include "addUpdateCommand.h"
 
-using namespace std;
-
 /*
 	Constructs an add/update command and automatically sends the bookCommand constructor the istream and ostream, and sets book to the bookIn parameter.
 */
@@ -15,9 +13,9 @@ addUpdateCommand::addUpdateCommand(phoneBook& bookIn, std::istream& in, std::ost
 	or updates an existing entry if there exists an entry with the inputted name.
 */
 void addUpdateCommand::execute() {
-	string newName = prompt("Enter name to add/update");
-	string newNumber = prompt("Enter phone number");
-	string newEmail = prompt("Enter e-mail address");
+	std::string newName = prompt("Enter name to add/update");
+	std::string newNumber = prompt("Enter phone number");
+	std::string newEmail = prompt("Enter e-mail address");
 
 	bool hasEntry = book.find(newName);
 

@@ -7,10 +7,10 @@
 */
 class bookCommand : public command {
 public:
-	bookCommand(std::istream& in, std::ostream& out);
+	bookCommand(std::istream& inStream, std::ostream& outStream);
 protected:
-	std::istream& in;
-	std::ostream& out;
+	std::istream &in;
+	std::ostream &out;
 	void display(std::string str);
 	std::string prompt(std::string str);
 };
