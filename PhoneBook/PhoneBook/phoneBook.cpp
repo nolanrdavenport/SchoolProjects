@@ -170,7 +170,7 @@ phoneBook::iterator phoneBook::end() {
 int phoneBook::containsName(std::string nameIn) {
 	for (itr = begin(); itr != end(); itr++) {
 		if ((*itr).name() == nameIn) {
-			return itr - begin();
+			return (int)(itr - begin());
 		}
 	}
 
