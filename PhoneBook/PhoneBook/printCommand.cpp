@@ -12,5 +12,5 @@ printCommand::printCommand(phoneBook& bookIn, std::istream& in, std::ostream& ou
 	Executes the print command. Calls the print() method in the phoneBook class.
 */
 void printCommand::execute() {
-	book.print();
+	book.print(out);
 }

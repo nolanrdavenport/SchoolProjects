@@ -1,5 +1,5 @@
 /*
-	This is a Phone Book program that stores and allows manipulation of a persons name, number, and email address. 
+	This is a Phone Book program that stores and allows manipulation of a persons name, number, and email address.
 */
 #include <iostream>
 #include "phoneBookEntry.h"
@@ -16,15 +16,15 @@ int main() {
 	phoneBook book;
 
 	//Creates commands
-	addUpdateCommand addUpdate(book,cin,cout);
-	eraseCommand erase(book,cin,cout);
-	printCommand print(book,cin,cout);
+	addUpdateCommand addUpdate(book, cin, cout);
+	eraseCommand erase(book, cin, cout);
+	printCommand print(book, cin, cout);
 
 	//Builds the menuList and menuItems.
 	menuList menu("Phone book menu:");
-	menuItem addUpdateItem('a',"add/update",addUpdate);
-	menuItem eraseItem('e',"erase",erase);
-	menuItem printItem('p',"print", print);
+	menuItem addUpdateItem('a', "add/update", addUpdate);
+	menuItem eraseItem('e', "erase", erase);
+	menuItem printItem('p', "print", print);
 
 	//Adds items to menu.
 	menu.add(addUpdateItem);
@@ -34,6 +34,6 @@ int main() {
 	//Starts the menu.
 	cout << "Starting the Phone Book" << endl << endl;
 	menu.start();
-	
+
 	return 0;
 }
