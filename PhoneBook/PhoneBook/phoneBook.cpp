@@ -8,58 +8,44 @@
 phoneBook::phoneBook() {}
 
 /*
-	Allows for the use of iterators in constant functions.
-*/
-void phoneBook::recalculateIteratorEnds() {
-	b = begin();
-	e = end();
-}
-
-/*
 	Adds a new entry to the entries vector by sending in a phoneBookEntry object reference as the parameter.
 */
 void phoneBook::insert(const phoneBookEntry &entry) {
-	int sameName = containsName(entry.name());
-	if (sameName >= 0) {
-		entries.at(sameName) = entry;
+	linkedList<phoneBookEntry>::iterator sameName = containsName(entry.name());
+	if (sameName == entries.end()) {
+		entries.insert(entry);
 	}
 	else {
-		entries.push_back(entry);
+		(*sameName).email(entry.email());
+		(*sameName).phoneNumber(entry.phoneNumber());
 	}
-
-	recalculateIteratorEnds();
 }
 
 /*
 	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name, number and email string references sent in as paramters.
 */
 void phoneBook::insert(const std::string &name, const std::string &number, const std::string &email) {
-	phoneBookEntry tempEntry(name, number, email);
-	int sameName = containsName(tempEntry.name());
-	if (sameName >= 0) {
-		entries.at(sameName) = tempEntry;
+	linkedList<phoneBookEntry>::iterator sameName = containsName(name);
+	if (sameName == entries.end()) {
+		entries.insert(phoneBookEntry(name, number, email));
 	}
 	else {
-		entries.push_back(tempEntry);
+		(*sameName).email(email);
+		(*sameName).phoneNumber(number);
 	}
-
-	recalculateIteratorEnds();
 }
 
 /*
 	Adds a new entry to the entries vector by creating a new phoneBookEntry object using the name and number string references sent in as paramters.
 */
 void phoneBook::insert(const std::string& name, const std::string& number) {
-	phoneBookEntry tempEntry(name, number);
-	int sameName = containsName(tempEntry.name());
-	if (sameName >= 0) {
-		entries.at(sameName) = tempEntry;
+	linkedList<phoneBookEntry>::iterator sameName = containsName(name);
+	if (sameName == entries.end()) {
+		entries.insert(phoneBookEntry(name, number));
 	}
 	else {
-		entries.push_back(tempEntry);
+		(*sameName).phoneNumber(number);
 	}
-
-	recalculateIteratorEnds();
 }
 
 /*
@@ -67,15 +53,14 @@ void phoneBook::insert(const std::string& name, const std::string& number) {
 	Returns true if an entry was erased, and false if an entry was not erased.
 */
 bool phoneBook::erase(std::string name) {
-	for (itr = begin(); itr != end(); itr++) {
-		if ((*itr).name() == name) {
-			entries.erase(itr);
-			recalculateIteratorEnds();
-			return true;
-		}
+	linkedList<phoneBookEntry>::iterator sameName = containsName(name);
+	if (sameName == entries.end()) {
+		return false;
 	}
-	recalculateIteratorEnds();
-	return false;
+	else {
+		entries.erase(sameName);
+		return true;
+	}
 }
 
 /*
@@ -83,12 +68,13 @@ bool phoneBook::erase(std::string name) {
 	Returns true if there does exist an entry with a name that matches the one sent in as a parameter, and false if not.
 */
 bool phoneBook::find(std::string name) {
-	for (itr = begin(); itr != end(); itr++) {
-		if ((*itr).name() == name) {
-			return true;
-		}
+	linkedList<phoneBookEntry>::iterator sameName = containsName(name);
+	if (sameName == entries.end()) {
+		return false;
 	}
-	return false;
+	else {
+		return true;
+	}
 }
 
 /*
@@ -96,17 +82,16 @@ bool phoneBook::find(std::string name) {
 */
 void phoneBook::print() const {
 	std::cout << "Name:                          Phone Number:   E-Mail:" << std::endl;
-	iterator itr;
-	for (itr = b; itr != e; itr++) {
+	for (linkedList<phoneBookEntry>::iterator iter = entries.begin(); iter != entries.end(); iter++) {
 		std::string name = "                               ";
-		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
-			name[i] = (*itr).name()[i];
+		for (unsigned int i = 0; i < (*iter).name().size(); i++) {
+			name[i] = (*iter).name()[i];
 		}
 		std::string number = "                ";
-		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
-			number[i] = (*itr).phoneNumber()[i];
+		for (unsigned int i = 0; i < (*iter).phoneNumber().size(); i++) {
+			number[i] = (*iter).phoneNumber()[i];
 		}
-		std::string email = (*itr).email();
+		std::string email = (*iter).email();
 
 		std::cout << name << number << email << std::endl;
 	}
@@ -117,17 +102,16 @@ void phoneBook::print() const {
 */
 void phoneBook::print(std::ostream& out) const {
 	out << "Name:                          Phone Number:   E-Mail:" << std::endl;
-	iterator itr;
-	for (itr = b; itr != e; itr++) {
+	for (linkedList<phoneBookEntry>::iterator iter = entries.begin(); iter != entries.end(); iter++) {
 		std::string name = "                               ";
-		for (unsigned int i = 0; i < (*itr).name().size(); i++) {
-			name[i] = (*itr).name()[i];
+		for (unsigned int i = 0; i < (*iter).name().size(); i++) {
+			name[i] = (*iter).name()[i];
 		}
 		std::string number = "                ";
-		for (unsigned int i = 0; i < (*itr).phoneNumber().size(); i++) {
-			number[i] = (*itr).phoneNumber()[i];
+		for (unsigned int i = 0; i < (*iter).phoneNumber().size(); i++) {
+			number[i] = (*iter).phoneNumber()[i];
 		}
-		std::string email = (*itr).email();
+		std::string email = (*iter).email();
 
 		out << name << number << email << std::endl;
 	}
@@ -137,10 +121,7 @@ void phoneBook::print(std::ostream& out) const {
 	Prints the entries vector for debug purposes.
 */
 void phoneBook::debug(std::ostream& out) const {
-	iterator itr;
-	for (itr = b; itr != e; itr++) {
-		out << (*itr).name() << " | " << (*itr).phoneNumber() << " | " << (*itr).email() << std::endl;
-	}
+	entries.debug(out);
 }
 
 /*
@@ -151,28 +132,13 @@ std::size_t phoneBook::size() const {
 }
 
 /*
-	Returns the begin iterator from the entries vector.
-*/
-phoneBook::iterator phoneBook::begin() {
-	return entries.begin();
-}
-
-/*
-	Returns the end iterator from the entries vector.
-*/
-phoneBook::iterator phoneBook::end() {
-	return entries.end();
-}
-
-/*
 	Returns the index of the entry that has the same name as the parameter. Returns -1 if there is no name that is equal to the parameter.
 */
-int phoneBook::containsName(std::string nameIn) {
-	for (itr = begin(); itr != end(); itr++) {
-		if ((*itr).name() == nameIn) {
-			return (int)(itr - begin());
+linkedList<phoneBookEntry>::iterator phoneBook::containsName(std::string nameIn) {
+	for (linkedList<phoneBookEntry>::iterator iter = entries.begin(); iter != entries.end(); iter++) {
+		if ((*iter).name() == nameIn) {
+			return entries.find(*iter);
 		}
 	}
-
-	return -1;
+	return entries.end();
 }

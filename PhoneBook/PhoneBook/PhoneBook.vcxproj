@@ -157,9 +157,8 @@
     <ClCompile Include="menuList.cpp" />
     <ClCompile Include="phoneBook.cpp" />
     <ClCompile Include="phoneBookEntry.cpp" />
-    <ClCompile Include="assignment2.cpp" />
+    <ClCompile Include="assignment3.cpp" />
     <ClCompile Include="printCommand.cpp" />
-    <ClCompile Include="testmenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addUpdateCommand.h" />
@@ -168,7 +167,9 @@
     <ClInclude Include="decrementCommand.h" />
     <ClInclude Include="eraseCommand.h" />
     <ClInclude Include="incrementCommand.h" />
+    <ClInclude Include="linkedList.h" />
     <ClInclude Include="menuList.h" />
+    <ClInclude Include="orderedLinkedList.h" />
     <ClInclude Include="phoneBook.h" />
     <ClInclude Include="phoneBookEntry.h" />
     <ClInclude Include="printCommand.h" />

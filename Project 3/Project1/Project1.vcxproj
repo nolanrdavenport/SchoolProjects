@@ -123,7 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="assignment4part2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="orderedLinkedList.h" />
+    <ClInclude Include="linkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

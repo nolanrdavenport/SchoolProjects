@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include "phoneBookEntry.h"
+#include "orderedLinkedList.h"
+#include "linkedList.h"
 
 /*
 	This is the phoneBook and contains phoneBookEntry values. You can add, update, and remove entries from the phoneBook and you can print the contents of the phoneBook.
@@ -18,16 +20,7 @@ public:
 	void print(std::ostream &out) const;
 	void debug(std::ostream &out) const;
 	std::size_t size() const;
-	typedef std::vector<phoneBookEntry> phoneBookEntryList;
-	typedef phoneBookEntryList::iterator iterator;
-	typedef phoneBookEntryList::const_iterator const_iterator;
-	iterator itr;
-	iterator b;
-	iterator e;
-	void recalculateIteratorEnds();
-	iterator begin();
-	iterator end();
-	int containsName(std::string nameIn);
+	linkedList<phoneBookEntry>::iterator containsName(std::string nameIn);
 private:
-	phoneBookEntryList entries;
+	orderedLinkedList<phoneBookEntry> entries;
 };

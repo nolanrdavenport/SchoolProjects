@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 /*
 		This class will represent an entry in the phone book. It contains the name, phone number and e-mail address.
@@ -17,8 +18,18 @@ public:
 	std::string email() const;
 	void phoneNumber(const std::string &newNumber);
 	void email(const std::string &newEmail);
+
+	bool operator==(const phoneBookEntry& entry) const;
+	bool operator!=(const phoneBookEntry& entry) const;
+	bool operator<(const phoneBookEntry& entry) const;
+	bool operator<=(const phoneBookEntry& entry) const;
+	bool operator>(const phoneBookEntry& entry) const;
+	bool operator>=(const phoneBookEntry& entry) const;
+
 private: 
 	std::string currName;
 	std::string currNumber;
 	std::string currEmail;
 };
+
+std::ostream& operator<<(std::ostream& out, const phoneBookEntry& entry);

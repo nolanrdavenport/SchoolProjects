@@ -1,2 +1,7 @@
-﻿  phoneBook.cpp
+﻿  addUpdateCommand.cpp
+  assignment3.cpp
+  eraseCommand.cpp
+  phoneBook.cpp
+  printCommand.cpp
+  Generating Code...
   PhoneBook.vcxproj -> C:\Users\guzzo\Documents\GitHub\SchoolProjects\PhoneBook\Debug\PhoneBook.exe

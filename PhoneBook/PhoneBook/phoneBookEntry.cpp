@@ -77,3 +77,35 @@ void phoneBookEntry::phoneNumber(const std::string &newNumber) {
 void phoneBookEntry::email(const std::string &newEmail) {
 	this->currEmail = newEmail;
 }
+
+bool phoneBookEntry::operator==(const phoneBookEntry& entry) const {
+	return entry.currName == currName;
+}
+
+bool phoneBookEntry::operator!=(const phoneBookEntry& entry) const {
+	return entry.currName != currName;
+}
+
+bool phoneBookEntry::operator<(const phoneBookEntry& entry) const {
+	return currName < entry.currName;
+}
+
+bool phoneBookEntry::operator<=(const phoneBookEntry& entry) const {
+	return currName <= entry.currName;
+}
+
+bool phoneBookEntry::operator>(const phoneBookEntry& entry) const {
+	return currName > entry.currName;
+}
+
+bool phoneBookEntry::operator>=(const phoneBookEntry& entry) const {
+	return currName >= entry.currName;
+}
+
+std::ostream& operator<<(std::ostream& out, const phoneBookEntry& entry) {
+	out << entry.name() << ", " << entry.phoneNumber();
+	if (entry.email() != "") {
+		out << ", " << entry.email();
+	}
+	return out;
+}
