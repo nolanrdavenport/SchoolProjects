@@ -4,25 +4,30 @@
 
 using namespace std;
 
+//for testing functions that take in function pointers
+void found(const string& value) {
+	cout << value << " was found in the tree" << endl;
+}
+
+void duplicatedItemFound(string& existingItem, const string& newItem) {
+	cout << existingItem << " was duplicated" << endl;
+}
+
 int main() {
 	binarySearchTree<string> testTree;
 	
 	testTree.insert("nolan");
-	cout << testTree.size() << endl;
 	testTree.insert("sandra");
-	cout << testTree.size() << endl;
 	testTree.insert("thomas");
-	cout << testTree.size() << endl;
 	testTree.insert("alex");
-	cout << testTree.size() << endl;
 	testTree.insert("lizzy");
-	cout << testTree.size() << endl;
-	testTree.erase("nolan");
-	cout << testTree.size() << endl;
-	testTree.erase("lizzy");
-	cout << testTree.size() << endl;
-	
 	testTree.print();
+	
+	cout << endl; 
+	binarySearchTree<string> copyTestTree(testTree);
+
+	copyTestTree.print();
+
 
 	return 0;
 }

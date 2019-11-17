@@ -3,6 +3,10 @@
 	-
 */
 #pragma once
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <iostream> 
+#include <vector>
 // forward declaration of the template class binarySearchTree
 template<class T>
 class binarySearchTree;
@@ -38,13 +42,16 @@ private:
 		root = nullptr;
 	}
 	void deleteAll(treeNode<T>* node);
-	treeNode<T>* root = nullptr;
 public:
+	treeNode<T>* root = nullptr;
+
+	T getRootValue() {
+		return root->getValue();
+	}
+
 	size_t treeSize = 0;
 	//Constructor
-	binarySearchTree() {
-		//TODO: figure out the default constructor	
-	}
+	binarySearchTree();
 
 	//Destructor
 	virtual ~binarySearchTree() {
@@ -52,9 +59,8 @@ public:
 	}
 
 	//Copy Constructor
-	binarySearchTree(const binarySearchTree& other) {
-		//TODO: Implement the copy constructor
-	}
+	binarySearchTree(const binarySearchTree& other);
+
 
 	//Assignment Operator
 	const binarySearchTree& operator=(const binarySearchTree& other) {
@@ -130,7 +136,7 @@ bool binarySearchTree<T>::find(const T& searchItem, void (*foundNode)(const T&))
 	treeNode<T>* curr = root;
 	while (curr != nullptr) {
 		if (searchItem == curr->getValue()) {
-			*foundNode(curr->getValue());
+			foundNode(curr->getValue());
 			return true;
 		}
 		else if (searchItem < curr->getValue()) {
@@ -140,7 +146,6 @@ bool binarySearchTree<T>::find(const T& searchItem, void (*foundNode)(const T&))
 			curr = curr->rightChild;
 		}
 	}
-
 	return false;
 }
 
@@ -151,6 +156,16 @@ bool binarySearchTree<T>::erase(const T& deleteItem) {
 	while (curr != nullptr) {
 		if (deleteItem == curr->getValue()) {
 			if (curr->leftChild == nullptr && curr->rightChild == nullptr) { // remove leaf node
+				if (curr == root) {
+					curr->leftChild = nullptr;
+					curr->rightChild = nullptr;
+				}
+				else if (parent->leftChild == curr) {
+					parent->leftChild = nullptr;
+				}
+				else {
+					parent->rightChild = nullptr;
+				}
 				delete curr;
 				treeSize--;
 			}
@@ -235,6 +250,7 @@ void binarySearchTree<T>::insert(const T& newItem) {
 			}
 			else {
 				curr->setValue(newItem);
+				curr = nullptr;
 			}
 		}
 	}
@@ -243,14 +259,14 @@ void binarySearchTree<T>::insert(const T& newItem) {
 template <class T>
 void binarySearchTree<T>::insert(const T& newItem, void (*duplicateItemFound)(T& existingItem, const T& newItem)) {
 	if (root == nullptr) {
-		root == new treeNode(newItem);
+		root == new treeNode<T>(newItem);
 	}
 	else {
 		treeNode<T>* curr = root;
 		while (curr != nullptr) {
 			if (newItem < curr->getValue()) {
 				if (curr->leftChild == nullptr) {
-					curr->leftChild = new treeNode(newItem);
+					curr->leftChild = new treeNode<T>(newItem);
 					curr = nullptr;
 					treeSize++;
 				}
@@ -260,7 +276,7 @@ void binarySearchTree<T>::insert(const T& newItem, void (*duplicateItemFound)(T&
 			}
 			else if (newItem > curr->getValue()) {
 				if (curr->rightChild == nullptr) {
-					curr->rightChild = new treeNode(newItem);
+					curr->rightChild = new treeNode<T>(newItem);
 					curr = nullptr;
 					treeSize++;
 				}
@@ -269,7 +285,9 @@ void binarySearchTree<T>::insert(const T& newItem, void (*duplicateItemFound)(T&
 				}
 			}
 			else {
-				*duplicateItemFound(curr->getValue(), newItem);
+				T val = curr->getValue();
+				curr = nullptr;
+				duplicateItemFound(val, newItem);
 			}
 		}
 	}
@@ -284,9 +302,27 @@ void binarySearchTree<T>::traverse(void(*itemFound)(const T& foundItem)) const {
 				return;
 			}
 			inOrderTraversal(node->leftChild);
-			*itemFound(node->getValue());
+			itemFound(node->getValue());
 			inOrderTraversal(node->rightChild);
 		}
 	};
 	temp::inOrderTraversal(root);
 }
+
+template<class T>
+binarySearchTree<T>::binarySearchTree(const binarySearchTree& other) {
+	struct temp {
+		static void preOrderTraversal(treeNode<T>* node) {
+			if (node == nullptr) {
+				return;
+			}
+
+			insert(node->getValue());
+			preOrderTraversal(node->leftChild);
+			preOrderTraversal(node->rightChild);
+		}
+	};
+	treeNode<T>* otherRoot = other.root;
+	temp::preOrderTraversal(otherRoot);
+}
+

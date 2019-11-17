@@ -1,27 +1,18 @@
 ﻿  assignment4.cpp
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(101,19): warning C4553:  '==': result of expression not used; did you intend '='?
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(97): message :  while compiling class template member function 'void binarySearchTree<std::string>::deleteAll(treeNode<T> *)'
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(97): message :         with
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(97): message :         [
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(97): message :             T=std::string
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(97): message :         ]
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(37): message :  see reference to function template instantiation 'void binarySearchTree<std::string>::deleteAll(treeNode<T> *)' being compiled
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(37): message :         with
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(37): message :         [
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(37): message :             T=std::string
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(37): message :         ]
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(8): message :  see reference to class template instantiation 'binarySearchTree<std::string>' being compiled
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(105,20): warning C4553:  '==': result of expression not used; did you intend '='?
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(159,11): warning C4553:  '==': result of expression not used; did you intend '='?
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(148): message :  while compiling class template member function 'bool binarySearchTree<std::string>::erase(const T &)'
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(148): message :         with
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(148): message :         [
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(148): message :             T=std::string
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(148): message :         ]
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(20): message :  see reference to function template instantiation 'bool binarySearchTree<std::string>::erase(const T &)' being compiled
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(20): message :         with
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(20): message :         [
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(20): message :             T=std::string
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(20): message :         ]
-C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(172,11): warning C4553:  '==': result of expression not used; did you intend '='?
-  BSTProject.vcxproj -> C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\Debug\BSTProject.exe
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(107,19): warning C4553:  '==': result of expression not used; did you intend '='?
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(103): message :  while compiling class template member function 'void binarySearchTree<std::string>::deleteAll(treeNode<T> *)'
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(103): message :         with
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(103): message :         [
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(103): message :             T=std::string
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(103): message :         ]
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(41): message :  see reference to function template instantiation 'void binarySearchTree<std::string>::deleteAll(treeNode<T> *)' being compiled
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(41): message :         with
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(41): message :         [
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(41): message :             T=std::string
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(41): message :         ]
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(17): message :  see reference to class template instantiation 'binarySearchTree<std::string>' being compiled
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(111,20): warning C4553:  '==': result of expression not used; did you intend '='?
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(320,4): error C2352:  'binarySearchTree<std::string>::insert': illegal call of non-static member function
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(95): message :  see declaration of 'binarySearchTree<std::string>::insert'
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\binarySearchTree.h(313): message :  while compiling class template member function 'binarySearchTree<std::string>::binarySearchTree(const binarySearchTree<std::string> &)'
+C:\Users\guzzo\Documents\GitHub\SchoolProjects\BSTProject\BSTProject\assignment4.cpp(27): message :  see reference to function template instantiation 'binarySearchTree<std::string>::binarySearchTree(const binarySearchTree<std::string> &)' being compiled
